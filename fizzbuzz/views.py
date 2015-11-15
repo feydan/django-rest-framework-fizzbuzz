@@ -13,7 +13,8 @@ class FizzBuzzList(generics.ListCreateAPIView):
         if request.content_type != 'application/json':
             return Response(status=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
-        request.data['useragent'] = request.META['HTTP_USER_AGENT'];
+        if 'HTTP_USER_AGENT' in request.META:
+            request.data['useragent'] = request.META['HTTP_USER_AGENT'];
         serializer = FizzBuzzSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
