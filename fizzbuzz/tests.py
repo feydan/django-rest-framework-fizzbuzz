@@ -62,3 +62,10 @@ class FizzBuzzTests(APITestCase):
         """
         response = self.client.delete('/fizzbuzz/1/')
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def test_patch_fizzbuzz(self):
+        """
+        Ensure we cannot patch a fizzbuzz object.
+        """
+        response = self.client.patch('/fizzbuzz/1/')
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)

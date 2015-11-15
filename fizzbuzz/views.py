@@ -32,3 +32,6 @@ class FizzBuzzDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def delete(self, request, pk):
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    def patch(self, request, pk):
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
