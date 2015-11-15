@@ -14,8 +14,8 @@ class FizzBuzzTests(APITestCase):
         response = self.client.post('/fizzbuzz/', json.dumps({'message': message}), content_type='application/json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         
-        fizbuzzId = response.data['fizzbuzz_id']
-        self.assertEqual(FizzBuzz.objects.get(pk=fizbuzzId).message, message)
+        fizzbuzzId = response.data['fizzbuzz_id']
+        self.assertEqual(FizzBuzz.objects.get(pk=fizzbuzzId).message, message)
 
     def test_list_fizzbuzz(self):
     	"""
